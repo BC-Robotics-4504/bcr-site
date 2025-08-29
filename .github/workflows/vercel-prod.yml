@@ -3,7 +3,7 @@ name: Vercel Production
 on:
   push:
     branches:
-      - master
+      - main
 
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
