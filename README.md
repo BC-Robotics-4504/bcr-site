@@ -1,10 +1,10 @@
-# BCR 4504 Team Documentation
+# BCR 4504 Team Website
 
 [![CI](https://github.com/BC-Robotics-4504/bcr-docs/actions/workflows/vercel-prod.yml/badge.svg?branch=master)](https://github.com/BC-Robotics-4504/bcr-docs/actions/workflows/vercel-prod.yml)
 [![License](https://img.shields.io/github/license/BC-Robotics-4504/bcr-docs?color=blue)](https://github.com/BC-Robotics-4504/bcr-docs/blob/main/LICENSE)
 [![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
 
-Welcome to the **official documentation site** for **FRC Team BCR 4504**.
+Welcome to the **official site** for **FRC Team BCR 4504**.
 This site contains resources, guides, and reference material for our team members, mentors, and supporters.
 
 ---
