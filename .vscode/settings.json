@@ -1,15 +1,18 @@
 {
-  // Format on save everywhere
-  "editor.formatOnSave": true,
-
-  // Prettier as default
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-
-  // Use Astro extension for .astro files
+  "css.customData": ["./vscode.tailwind.json"],
+  "eslint.validate": ["javascript", "javascriptreact", "astro", "typescript", "typescriptreact"],
+  "files.associations": {
+    "*.mdx": "markdown"
+  },
+  "prettier.documentSelectors": ["**/*.astro"],
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode"
   },
-
+  "yaml.schemas": {
+    "./.vscode/astrowind/config-schema.json": "/src/config.yaml"
+  },
+  "eslint.useFlatConfig": true,
+  
   // Nice-to-haves for docs
   "[markdown]": {
     "editor.wordWrap": "bounded",
