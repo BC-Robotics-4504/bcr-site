@@ -1,22 +1,21 @@
 site:
-  name: AstroWind
-  site: 'https://astrowind.vercel.app'
-  base: '/'
+  name: BC Robotics 4504
+  site: 'https://bcr4504.org'
   trailingSlash: false
 
-  googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M
+  googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M #!FIXME Change this
 
 # Default SEO metadata
 metadata:
   title:
-    default: AstroWind
-    template: '%s — AstroWind'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+    default: BC Robotics 4504
+    template: '%s — BC Robotics 4504'
+  description: "\U0001F680 The offical website for FRC Team 4504: BC Robotics"
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: AstroWind
+    site_name: BC Robotics 4504
     images:
       - url: '~/assets/images/default.png'
         width: 1200
