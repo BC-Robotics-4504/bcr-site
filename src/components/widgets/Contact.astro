@@ -19,22 +19,44 @@ const {
   classes = {},
   bg = await Astro.slots.render('bg'),
 } = Astro.props;
+
+// 👇 your team’s inbox
+const TO_EMAIL = 'bcrobotics4504@gmail.com';
+
+// sensible defaults if props not passed
+const safeInputs = inputs ?? [
+  { type: 'text', name: 'name', label: 'Name', required: true },
+  { type: 'email', name: 'email', label: 'Email', required: true },
+];
+const safeTextarea = textarea ?? { label: 'Message', name: 'message', required: true, rows: 6 };
+const safeButton = button ?? 'Send Email';
 ---
 
-<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+<WidgetWrapper
+  id={id}
+  isDark={isDark}
+  containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`}
+  bg={bg}
+>
   <Headline title={title} subtitle={subtitle} tagline={tagline} />
 
-  {
-    inputs && (
-      <div class="flex flex-col max-w-xl mx-auto rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow p-4 sm:p-6 lg:p-8 w-full">
+  {safeInputs && (
+    <div
+      class="flex flex-col max-w-xl mx-auto rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow p-4 sm:p-6 lg:p-8 w-full"
+    >
+      <!-- 👇 form wrapper keeps original styling intact -->
+      <form id="mailto-form" class="space-y-6" data-to={TO_EMAIL}>
         <FormContainer
-          inputs={inputs}
-          textarea={textarea}
+          inputs={safeInputs}
+          textarea={safeTextarea}
           disclaimer={disclaimer}
-          button={button}
+          button={safeButton}
           description={description}
         />
-      </div>
-    )
-  }
+      </form>
+    </div>
+  )}
 </WidgetWrapper>
+
+<!-- External client-side script -->
+<script type="module" src="/scripts/contact-mailto.js"></script>
