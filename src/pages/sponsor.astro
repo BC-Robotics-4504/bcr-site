@@ -1,0 +1,161 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Sponsor Us',
+};
+
+const sponsorEmail = 'bcrobotics4504@gmail.com';
+const packetUrl = '/files/Team4504_Sponsorship_Packet.pdf'; // change to your real file path
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero ******************* -->
+  <Hero
+    tagline="Sponsor Team 4504"
+    title="Power the next generation of engineers."
+    subtitle="Your support fuels robots, competition travel, and hands-on STEM education for Blount County students."
+    image={{ src: '~/assets/images/robot-hero.jpg', alt: 'Team 4504 robot' }}
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Download Sponsor Packet',
+        href: packetUrl,
+        target: '_blank',
+        icon: 'tabler:file',
+      },
+      {
+        text: 'Email Us',
+        href: `mailto:${sponsorEmail}?subject=Sponsor%20Inquiry%20-%20Team%204504`,
+        icon: 'tabler:mail',
+      },
+    ]}
+  />
+
+  <!-- Why Sponsor / Impact ******************* -->
+  <Content
+    id="impact"
+    items={[
+      {
+        title: 'Community Impact',
+        description:
+          'We mentor local students, demo at schools, and host outreach that brings STEM to hundreds of K-12 kids.',
+      },
+      {
+        title: 'Real Engineering',
+        description: 'Students design, manufacture, and program competitive robots using industry tools and practices.',
+      },
+      {
+        title: 'Brand Visibility',
+        description: 'Your logo travels with us to competitions, events, social media, and our website.',
+      },
+      {
+        title: 'Tax-Deductible',
+        description: 'We partner with our school foundation/booster to provide sponsorship receipts as applicable.',
+      },
+    ]}
+    image={{ src: '~/assets/images/team-photo.jpg', alt: 'Team 4504 students' }}
+  >
+    <Fragment slot="content">Join local businesses and alumni backing Blount County Robotics.</Fragment>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Sponsor Levels (compact cards) ******************* -->
+  <Features2
+    id="levels"
+    title="Sponsorship Levels"
+    subtitle="Pick the tier that fits your goals. All sponsors receive a thank-you letter and website mention."
+    items={[
+      {
+        title: 'Bronze — $250+',
+        description: 'Website logo + social media thank-you.',
+        icon: 'tabler:medal',
+      },
+      {
+        title: 'Silver — $500+',
+        description: 'All Bronze perks + logo on pit signage and team banner.',
+        icon: 'tabler:award',
+      },
+      {
+        title: 'Gold — $1,000+',
+        description: 'All Silver perks + medium logo on robot and jersey sleeve.',
+        icon: 'tabler:trophy',
+      },
+      {
+        title: 'Platinum — $2,500+',
+        description: 'All Gold perks + large logo on robot, website feature, and event shout-outs.',
+        icon: 'tabler:stars',
+      },
+      {
+        title: 'Diamond — $5,000+',
+        description: 'Top logo placement, shop signage, custom demo for your org, and priority branding in media.',
+        icon: 'tabler:diamond',
+      },
+      {
+        title: 'In-Kind Support',
+        description: 'Materials, machining, printing, meals, or services—recognized at equivalent tier value.',
+        icon: 'tabler:package',
+      },
+    ]}
+  />
+
+  <!-- Quick Stats ******************* -->
+  <Stats
+    id="stats"
+    title="Your support at work"
+    items={[
+      { title: 'Students Served / Year', amount: 40, icon: 'tabler:users' },
+      { title: 'Outreach Audience', amount: 1500, icon: 'tabler:megaphone' },
+      { title: 'Competition Events', amount: 6, icon: 'tabler:flag-3' },
+      { title: 'Volunteer Hours', amount: 1200, icon: 'tabler:clock' },
+    ]}
+  />
+
+  <!-- FAQs ******************* -->
+  <FAQs
+    id="faqs"
+    title="Sponsorship FAQs"
+    items={[
+      {
+        title: 'How do I become a sponsor?',
+        content: `Download the packet for details or email us at ${sponsorEmail}. We’ll coordinate receipt and logo assets.`,
+      },
+      {
+        title: 'Are donations tax-deductible?',
+        content:
+          'Yes—through our school/district foundation or booster club (details in the packet). We can provide a receipt.',
+      },
+      {
+        title: 'Where will my logo appear?',
+        content: 'Depending on tier: robot, pit signage, team shirts, website, print materials, and social posts.',
+      },
+      {
+        title: 'Do you accept in-kind donations?',
+        content:
+          'Absolutely. Materials, machining, printing, tools, catering, and services are recognized at equivalent tiers.',
+      },
+    ]}
+  />
+
+  <!-- Call To Action ******************* -->
+  <CallToAction
+    title="Ready to partner with Team 4504?"
+    subtitle="Help us inspire the next generation of builders, coders, and leaders."
+    actions={[
+      { variant: 'primary', text: 'Download Sponsor Packet', href: packetUrl, target: '_blank', icon: 'tabler:file' },
+      {
+        text: 'Email the Team',
+        href: `mailto:${sponsorEmail}?subject=Sponsor%20Inquiry%20-%20Team%204504`,
+        icon: 'tabler:mail',
+      },
+    ]}
+  />
+</Layout>
