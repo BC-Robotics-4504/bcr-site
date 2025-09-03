@@ -6,223 +6,145 @@ import Stats from '~/components/widgets/Stats.astro';
 import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
-const metadata = {
-  title: 'About us',
+const metadata = { title: 'About Us' };
+
+const heroImage = {
+  src: '~/assets/images/robot-hero.jpg',
+  alt: 'BC Robotics Team 4504 robot on the field',
+};
+const gridImage = {
+  src: '~/assets/images/team-photo.jpg',
+  alt: 'BC Robotics students collaborating in the shop',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-
-  <Hero
-    tagline="About us"
-    image={{
-      src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Caos Image',
-    }}
-  >
+  <Hero tagline="About Us" image={heroImage}>
     <Fragment slot="title">
-      Elevate your online presence with our <br />
-      <span class="text-accent dark:text-white"> Beautiful Website Templates</span>
+      FIRST Robotics Team <span class="text-accent dark:text-white">4504 — Blount County Robotics</span>
     </Fragment>
-
     <Fragment slot="subtitle">
-      Donec efficitur, ipsum quis congue luctus, mauris magna convallis mauris, eu auctor nisi lectus non augue. Donec
-      quis lorem non massa vulputate efficitur ac at turpis. Sed tincidunt ex a nunc convallis, et lobortis nisi tempus.
-      Suspendisse vitae nisi eget tortor luctus maximus sed non lectus.
+      We are a student-led, mentor-supported <strong>FIRST Robotics Competition</strong> team based in
+      <strong>Blount County, Tennessee</strong>. Our mission is to inspire young people to become
+      science and technology leaders through hands-on engineering, coding, and community outreach.
+      Each season we design, build, and program a 120-lb robot to compete across the region—while
+      growing leadership, teamwork, and real-world problem-solving skills.
     </Fragment>
   </Hero>
 
-  <!-- Stats Widget ****************** -->
-
   <Stats
-    title="Statistics about us"
+    title="What we do — at a glance"
     stats={[
-      { title: 'Offices', amount: '4' },
-      { title: 'Employees', amount: '248' },
-      { title: 'Templates', amount: '12' },
-      { title: 'Awards', amount: '24' },
+      { title: 'Students Each Season', amount: '40+' },
+      { title: 'Mentors & Coaches', amount: '10+' },
+      { title: 'Outreach Audience / Year', amount: '1,500+' },
+      { title: 'Events & Competitions', amount: '5–7' },
     ]}
   />
 
-  <!-- Features3 Widget ************** -->
-
   <Features3
-    title="Our templates"
-    subtitle="Etiam scelerisque, enim eget vestibulum luctus, nibh mauris blandit nulla, nec vestibulum risus justo ut enim. Praesent lacinia diam et ante imperdiet euismod."
+    title="How our team is organized"
+    subtitle="Students pick a subteam, learn by doing, and ship together."
     columns={3}
     isBeforeContent={true}
     items={[
       {
-        title: 'Educational',
-        description:
-          'Morbi faucibus luctus quam, sit amet aliquet felis tempor id. Cras augue massa, ornare quis dignissim a, molestie vel nulla.',
-        icon: 'tabler:template',
+        title: 'Mechanical',
+        description: 'CAD to comp: mechanisms, drivetrains, prototyping, fabrication, assembly, pit operations.',
+        icon: 'tabler:tools',
       },
       {
-        title: 'Interior Design',
-        description:
-          'Vivamus porttitor, tortor convallis aliquam pretium, turpis enim consectetur elit, vitae egestas purus erat ac nunc nulla.',
-        icon: 'tabler:template',
+        title: 'Electrical & Controls',
+        description: 'REV/CTRE wiring, power distribution, sensors, pneumatics, CAN, reliability & safety.',
+        icon: 'tabler:device-analytics', // valid
       },
       {
-        title: 'Photography',
-        description:
-          'Duis sed lectus in nisl vehicula porttitor eget quis odio. Aliquam erat volutpat. Nulla eleifend nulla id sem fermentum.',
-        icon: 'tabler:template',
+        title: 'Software',
+        description: 'WPILib, command-based, PathPlanner autos, vision, testing, CI, and match logging.',
+        icon: 'tabler:code', // valid
       },
     ]}
   />
 
-  <!-- Features3 Widget ************** -->
-
+  <!-- ↓ This is where it likely broke before: swap to safe icons -->
   <Features3
     columns={3}
     isAfterContent={true}
     items={[
       {
-        title: 'E-commerce',
-        description:
-          'Rutrum non odio at vehicula. Proin ipsum justo, dignissim in vehicula sit amet, dignissim id quam. Sed ac tincidunt sapien.',
-        icon: 'tabler:template',
+        title: 'Onshape + MKCad',
+        description: 'Cloud CAD for collaborative design reviews and fast iteration from kickoff to comp.',
+        icon: 'tabler:cube', // safe
       },
       {
-        title: 'Blog',
-        description:
-          'Nullam efficitur volutpat sem sed fringilla. Suspendisse et enim eu orci volutpat laoreet ac vitae libero.',
-        icon: 'tabler:template',
+        title: 'REV / CTRE Ecosystem',
+        description: 'Modern FRC control hardware for precise motion, robust wiring, and serviceability.',
+        icon: 'tabler:cpu', // was circuit-battery → use cpu (safe)
       },
       {
-        title: 'Business',
-        description:
-          'Morbi et elit finibus, facilisis justo ut, pharetra ipsum. Donec efficitur, ipsum quis congue luctus, mauris magna.',
-        icon: 'tabler:template',
+        title: 'WPILib + PathPlanner',
+        description: 'Clean command-based architecture and repeatable auto paths that score reliably.',
+        icon: 'tabler:steering-wheel', // safe
       },
       {
-        title: 'Branding',
-        description:
-          'Suspendisse vitae nisi eget tortor luctus maximus sed non lectus. Cras malesuada pretium placerat. Nullam venenatis dolor a ante rhoncus.',
-        icon: 'tabler:template',
+        title: 'GitHub + CI',
+        description: 'Code reviews, style checks, artifacts, and releases to keep the robot software shippable.',
+        icon: 'tabler:brand-github', // safe
       },
       {
-        title: 'Medical',
-        description:
-          'Vestibulum malesuada lacus id nibh posuere feugiat. Nam volutpat nulla a felis ultrices, id suscipit mauris congue. In hac habitasse platea dictumst.',
-        icon: 'tabler:template',
+        title: 'Shop & Field Practice',
+        description: 'Prototyping, driver practice, pit drills, and checklists to perform under pressure.',
+        icon: 'tabler:settings', // replace settings-cog → settings (safe)
       },
       {
-        title: 'Fashion Design',
-        description:
-          'Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus.',
-        icon: 'tabler:template',
+        title: 'Outreach & Media',
+        description: 'STEM demos at schools and community events, plus docs, photos, and social updates.',
+        icon: 'tabler:phone', // safe
       },
     ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'Colorful Image',
-    }}
+    image={gridImage}
   />
 
-  <!-- Steps2 Widget ****************** -->
-
   <Steps2
-    title="Our values"
-    subtitle="Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus. Nulla facilisi. Vestibulum malesuada lacus."
+    title="Our build season process"
+    subtitle="From kickoff to competition, we iterate quickly and learn continuously."
     items={[
-      {
-        title: 'Customer-centric approach',
-        description:
-          'Donec id nibh neque. Quisque et fermentum tortor. Fusce vitae dolor a mauris dignissim commodo. Ut eleifend luctus condimentum.',
-      },
-      {
-        title: 'Constant Improvement',
-        description:
-          'Phasellus laoreet fermentum venenatis. Vivamus dapibus pulvinar arcu eget mattis. Fusce eget mauris leo.',
-      },
-      {
-        title: 'Ethical Practices',
-        description:
-          'Vestibulum imperdiet libero et lectus molestie, et maximus augue porta. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
-      },
+      { title: 'Kickoff & Strategy', description: 'Break down the game, set priorities, and define a simple, effective MVP.' },
+      { title: 'Design & Prototyping', description: 'Rapid prototypes inform CAD; validate mechanisms before manufacture.' },
+      { title: 'Integrate, Test, Iterate', description: 'Bring subsystems together, run autos, log data, and improve reliability.' },
     ]}
   />
 
-  <!-- Steps2 Widget ****************** -->
-
   <Steps2
-    title="Achievements"
-    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla, sed porttitor est nibh at nulla."
+    title="Impact beyond the robot"
+    subtitle="We’re here to grow people, not just points."
     isReversed={true}
-    callToAction={{
-      text: 'See more',
-      href: '/',
-    }}
+    callToAction={{ text: 'See our sponsors', href: '/sponsor' }}
     items={[
-      {
-        title: 'Global reach',
-        description: 'Nam malesuada urna in enim imperdiet tincidunt. Phasellus non tincidunt nisi, at elementum mi.',
-        icon: 'tabler:globe',
-      },
-      {
-        title: 'Positive customer feedback and reviews',
-        description:
-          'Cras semper nulla leo, eget laoreet erat cursus sed. Praesent faucibus massa in purus iaculis dictum.',
-        icon: 'tabler:message-star',
-      },
-      {
-        title: 'Awards and recognition as industry experts',
-        description:
-          'Phasellus lacinia cursus velit, eu malesuada magna pretium eu. Etiam aliquet tellus purus, blandit lobortis ex rhoncus vitae.',
-        icon: 'tabler:award',
-      },
+      { title: 'Community Outreach', description: 'Demos and hands-on STEM across Blount County and East Tennessee.', icon: 'tabler:heart-handshake' },
+      { title: 'Student Leadership', description: 'Students lead subteams, run stand-ups, manage budgets, and document.', icon: 'tabler:users' },
+      { title: 'College & Careers', description: 'Alumni pursue engineering, CS, and trades with strong portfolios.', icon: 'tabler:school' },
     ]}
   />
 
-  <!-- Features2 Widget ************** -->
-
   <Features2
-    title="Our locations"
-    tagline="Find us"
-    columns={4}
+    title="Where to find us"
+    tagline="Blount County, Tennessee"
+    columns={3}
     items={[
-      {
-        title: 'EE.UU',
-        description: '1234 Lorem Ipsum St, 12345, Miami',
-      },
-      {
-        title: 'Spain',
-        description: '5678 Lorem Ipsum St, 56789, Madrid',
-      },
-      {
-        title: 'Australia',
-        description: '9012 Lorem Ipsum St, 90123, Sydney',
-      },
-      {
-        title: 'Brazil',
-        description: '3456 Lorem Ipsum St, 34567, São Paulo',
-      },
+      { title: 'Build & Meetings', description: 'Team meetings during the school year and build season in Blount County, TN.' },
+      { title: 'Events & Demos', description: 'Follow our site and socials for event dates and demo appearances.' },
+      { title: 'Contact', description: 'Email bcrobotics4504@gmail.com to join, mentor, or sponsor.' },
     ]}
   />
 
-  <!-- Features2 Widget ************** -->
-
   <Features2
-    title="Technical Support"
-    tagline="Contact us"
+    title="Get involved"
+    tagline="Join the mission"
     columns={2}
     items={[
-      {
-        title: 'Chat with us',
-        description:
-          'Integer luctus laoreet libero, auctor varius purus rutrum sit amet. Ut nec molestie nisi, quis eleifend mi.',
-        icon: 'tabler:messages',
-      },
-      {
-        title: 'Call us',
-        description:
-          'Mauris faucibus finibus orci, in posuere elit viverra non. In hac habitasse platea dictumst. Cras lobortis metus a hendrerit congue.',
-        icon: 'tabler:headset',
-      },
+      { title: 'Students & Mentors', description: 'No experience required—mechanical, electrical, software, business, media.', icon: 'tabler:message-plus' },
+      { title: 'Sponsors & Partners', description: 'Back local STEM. Multiple sponsor tiers and in-kind support options.', icon: 'tabler:puzzle' },
     ]}
   />
 </Layout>

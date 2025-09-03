@@ -1,0 +1,67 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+
+const metadata = {
+  title: 'Team Calendar',
+};
+
+// 👉 Replace with your Google Calendar embed link.
+// To get it: In Google Calendar → Settings → "Integrate calendar" → Copy the "Public URL" or "Embed code".
+const calendarEmbedUrl =
+  "https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&showPrint=0&showTitle=0&src=YmNyb2JvdGljczQ1MDRAZ21haWwuY29t&color=%23039be5"
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero ******************* -->
+  <Hero
+    tagline="Calendar"
+    title="Stay up to date with Team 4504"
+    subtitle="Our official Google Calendar feed, auto-synced via ICS. Practices, outreach, competitions — all in one place."
+    image={{
+      src: '~/assets/images/calendar-hero.jpg',
+      alt: 'Team calendar image',
+    }}
+  />
+
+  <!-- Embed Calendar ******************* -->
+   <div class="w-full flex justify-center mb-2 mt-0">
+        <div class="w-full max-w-4xl">
+          <div class="overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700 shadow-lg mx-auto" style="width: min(100%, 800px);">
+            <iframe
+              src={calendarEmbedUrl}
+              style="border-width:0"
+              width="100%"
+              height="750"
+              frameborder="0"
+              scrolling="no"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+  <!-- Sync Instructions ******************* -->
+  <Features2
+    title="Sync to your device"
+    subtitle="Follow the ICS link to add sync our calendar with yours."
+    items={[
+      {
+        title: 'Google Calendar',
+        description:
+          'Click the +Google Calendar button on the bottom-left of the embedded calendar to add it directly.',
+        icon: 'tabler:brand-google',
+      },
+      {
+        title: 'Apple Calendar',
+        description: 'Copy the ICS link into Calendar → File → New Calendar Subscription.',
+        icon: 'tabler:brand-apple',
+      },
+      {
+        title: 'Outlook',
+        description: 'Go to Add Calendar → Subscribe from web → Paste the ICS link.',
+        icon: 'tabler:brand-windows',
+      },
+    ]}
+  />
+</Layout>

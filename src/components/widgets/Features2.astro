@@ -2,7 +2,18 @@
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import Headline from '~/components/ui/Headline.astro';
 import ItemGrid2 from '~/components/ui/ItemGrid2.astro';
+import { Icon } from 'astro-icon/components';
 import type { Features as Props } from '~/types';
+
+type LinkableItem = {
+  title: string;
+  description?: string;
+  icon?: string;          // e.g. "tabler:cube"
+  href?: string;          // optional: makes the card a link
+  target?: '_self' | '_blank';
+  rel?: string;
+  ctaText?: string;
+};
 
 const {
   title = await Astro.slots.render('title'),
@@ -12,27 +23,132 @@ const {
   columns = 3,
   defaultIcon,
 
+  enableMotion = true,
+  enableReflection = false,
+  ctaText = 'Learn more',
+
   id,
   isDark = false,
   classes = {},
   bg = await Astro.slots.render('bg'),
-} = Astro.props;
+} = Astro.props as Props & {
+  items?: LinkableItem[];
+  enableMotion?: boolean;
+  enableReflection?: boolean;
+  ctaText?: string;
+};
+
+const panelClass =
+  'rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur border border-[#ffffff29] bg-white dark:bg-slate-900 p-6';
+const containerGap = 'gap-4 md:gap-6';
+const iconClass = 'w-12 h-12 mb-6 text-primary';
+
+const motionClass = enableMotion
+  ? 'transform transition will-change-transform hover:-translate-y-1 hover:shadow-lg hover:shadow-white/40'
+  : '';
+const reflectionClass = enableReflection
+  ? '[-webkit-box-reflect:below_0px_linear-gradient(to_bottom,transparent,rgba(0,0,0,0.12))]'
+  : '';
+
+const cols =
+  columns === 1
+    ? 'grid-cols-1'
+    : columns === 2
+      ? 'grid-cols-1 sm:grid-cols-2'
+      : columns === 4
+        ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4'
+        : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3';
+
+const mergedContainerClass = (classes?.items as Record<string, string>)?.container
+  ? `${containerGap} ${(classes?.items as Record<string, string>).container}`
+  : containerGap;
+
+const mergedPanelClass = (classes?.items as Record<string, string>)?.panel
+  ? (classes as { items?: Record<string, string> }).items!.panel
+  : panelClass;
+
+const mergedIconClass = (classes?.items as Record<string, string>)?.icon
+  ? (classes as { items?: Record<string, string> }).items!.icon
+  : iconClass;
+
+const hasLinks = (items as LinkableItem[]).some((it) => !!it.href);
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
-  <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline as Record<string, string>} />
-  <ItemGrid2
-    items={items}
-    columns={columns}
-    defaultIcon={defaultIcon}
-    classes={{
-      container: 'gap-4 md:gap-6',
-      panel:
-        'rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur border border-[#ffffff29] bg-white dark:bg-slate-900 p-6',
-      // panel:
-      //   "text-center bg-page items-center md:text-left rtl:md:text-right md:items-start p-6 p-6 rounded-md shadow-xl dark:shadow-none dark:border dark:border-slate-800",
-      icon: 'w-12 h-12 mb-6 text-primary',
-      ...((classes?.items as Record<string, never>) ?? {}),
-    }}
+  <Headline
+    title={title}
+    subtitle={subtitle}
+    tagline={tagline}
+    classes={classes?.headline as Record<string, string>}
   />
+
+  {
+    hasLinks
+      ? (
+        <div class={`grid ${cols} ${mergedContainerClass}`}>
+          {
+            (items as LinkableItem[]).map((item) => {
+              const iconName = item.icon ?? defaultIcon;
+              const Tag = item.href ? 'a' as const : 'div' as const;
+              const target = item.target ?? (item.href?.startsWith('http') ? '_blank' : '_self');
+              const rel = item.rel ?? (item.href && target === '_blank' ? 'noopener noreferrer' : undefined);
+              const thisCta = item.ctaText ?? ctaText;
+
+              const finalClass = item.href
+                ? `${mergedPanelClass} block group ${motionClass} ${reflectionClass}`
+                : mergedPanelClass;
+
+              return (
+                <Tag
+                  href={item.href}
+                  target={item.href ? target : undefined}
+                  rel={item.href ? rel : undefined}
+                  class={finalClass}
+                  aria-label={item.href ? item.title : undefined}
+                >
+                  {iconName && (
+                    <div class={mergedIconClass}>
+                      <Icon name={iconName} class="w-full h-full" />
+                    </div>
+                  )}
+
+                  <h3 class="text-lg font-semibold mb-2 text-slate-900 dark:text-white">
+                    {item.title}
+                  </h3>
+
+                  {item.description && (
+                    <p class="text-sm text-slate-600 dark:text-slate-300">
+                      {item.description}
+                    </p>
+                  )}
+
+                  {item.href && (
+                    <div class="mt-4 inline-flex items-center text-primary font-medium text-sm">
+                      {thisCta}
+                      <svg class="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M5 12h14"></path>
+                        <path d="M12 5l7 7-7 7"></path>
+                      </svg>
+                    </div>
+                  )}
+                </Tag>
+              );
+            })
+          }
+        </div>
+      )
+      : (
+        <ItemGrid2
+          items={items}
+          columns={columns}
+          defaultIcon={defaultIcon}
+          classes={{
+            container: mergedContainerClass,
+            panel: mergedPanelClass,
+            icon: mergedIconClass,
+            ...((classes?.items as Record<string, never>) ?? {}),
+          }}
+        />
+      )
+  }
 </WidgetWrapper>

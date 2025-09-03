@@ -1,0 +1,68 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+
+const metadata = { title: 'Team Sign-In' };
+
+// Your Google Form embed URL (replace if you change the form)
+const formEmbedUrl =
+  'https://docs.google.com/forms/d/e/1FAIpQLSfsfDUhiP5jTqC0zCdrC5qBisBxU56nMVAgcD-lJRFXzPxfOQ/viewform?embedded=true';
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero ******************* -->
+  <Hero
+    tagline="Attendance"
+    title="Team 4504 Sign-In"
+    subtitle="Sign in for today. Name and role are required; hours are tracked separately."
+    image={{ src: '~/assets/images/calendar-hero.jpg', alt: 'Attendance' }}
+  />
+
+
+      <div class="w-full flex justify-center">
+        <div class="w-full max-w-4xl">
+          <div
+            class="overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700 shadow-lg mx-auto bg-white/70 dark:bg-slate-900/50"
+            style="width:min(100%, 860px);"
+          >
+            <!-- Responsive iframe wrapper: keeps aspect and centers -->
+            <div class="relative" style="padding-bottom: 0;">
+              <iframe
+                src={formEmbedUrl}
+                class="block w-full"
+                style="border:0; height: 780px;"
+                height="780"
+                frameborder="0"
+                marginheight="0"
+                marginwidth="0"
+                scrolling="auto"
+              >Loading…</iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  <!-- Tips / Help ******************* -->
+  <Features2
+    title="Having trouble?"
+    subtitle="Quick fixes if the form doesn’t load or you’re on a kiosk."
+    items={[
+      {
+        title: 'Open in new tab',
+        description: 'If the embed is blocked, open the form directly.',
+        icon: 'tabler:external-link',
+      },
+      {
+        title: 'Check Wi-Fi / VPN',
+        description: 'School filters or VPNs can block Google Forms embeds.',
+        icon: 'tabler:wifi',
+      },
+      {
+        title: 'Privacy',
+        description: 'Submissions go to our team’s Google Sheet for attendance tracking only.',
+        icon: 'tabler:shield-lock',
+      },
+    ]}
+  />
+</Layout>

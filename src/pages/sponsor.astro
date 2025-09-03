@@ -12,7 +12,7 @@ const metadata = {
 };
 
 const sponsorEmail = 'bcrobotics4504@gmail.com';
-const packetUrl = '/files/Team4504_Sponsorship_Packet.pdf'; // change to your real file path
+const packetUrl = '/files/sponsor-form.pdf'; // change to your real file path
 ---
 
 <Layout metadata={metadata}>
@@ -28,7 +28,7 @@ const packetUrl = '/files/Team4504_Sponsorship_Packet.pdf'; // change to your re
         text: 'Download Sponsor Packet',
         href: packetUrl,
         target: '_blank',
-        icon: 'tabler:file',
+        icon: 'tabler:file-dollar',
       },
       {
         text: 'Email Us',
@@ -55,10 +55,7 @@ const packetUrl = '/files/Team4504_Sponsorship_Packet.pdf'; // change to your re
         title: 'Brand Visibility',
         description: 'Your logo travels with us to competitions, events, social media, and our website.',
       },
-      {
-        title: 'Tax-Deductible',
-        description: 'We partner with our school foundation/booster to provide sponsorship receipts as applicable.',
-      },
+
     ]}
     image={{ src: '~/assets/images/team-photo.jpg', alt: 'Team 4504 students' }}
   >
@@ -75,34 +72,34 @@ const packetUrl = '/files/Team4504_Sponsorship_Packet.pdf'; // change to your re
     subtitle="Pick the tier that fits your goals. All sponsors receive a thank-you letter and website mention."
     items={[
       {
-        title: 'Bronze — $250+',
-        description: 'Website logo + social media thank-you.',
+        title: 'Member — $100+',
+        description: 'Special recognition on team website',
         icon: 'tabler:medal',
       },
       {
-        title: 'Silver — $500+',
-        description: 'All Bronze perks + logo on pit signage and team banner.',
-        icon: 'tabler:award',
+        title: 'Bronze — $250+',
+        description: 'All Member perks + name/logo on our team\'s t-shirt, Personal tour of our pit at competition.',
+        icon: 'tabler:award'
       },
       {
-        title: 'Gold — $1,000+',
-        description: 'All Silver perks + medium logo on robot and jersey sleeve.',
+        title: 'Silver — $500+',
+        description: 'All Bronze perks + name/logo on our competition banner.',
         icon: 'tabler:trophy',
       },
       {
-        title: 'Platinum — $2,500+',
-        description: 'All Gold perks + large logo on robot, website feature, and event shout-outs.',
+        title: 'Gold — $1,000+',
+        description: 'All Silver perks + name/logo on robot',
         icon: 'tabler:stars',
       },
       {
-        title: 'Diamond — $5,000+',
-        description: 'Top logo placement, shop signage, custom demo for your org, and priority branding in media.',
-        icon: 'tabler:diamond',
+        title: 'Platinum — $5,000+',
+        description: 'All Gold perks + post-season visit to your company with our robot',
+        icon: 'tabler:sparkles',
       },
       {
-        title: 'In-Kind Support',
-        description: 'Materials, machining, printing, meals, or services—recognized at equivalent tier value.',
-        icon: 'tabler:package',
+        title: 'Titanium',
+        description: 'All Platinum perks + we name the robot after your company',
+        icon: 'tabler:diamond',
       },
     ]}
   />
@@ -126,21 +123,16 @@ const packetUrl = '/files/Team4504_Sponsorship_Packet.pdf'; // change to your re
     items={[
       {
         title: 'How do I become a sponsor?',
-        content: `Download the packet for details or email us at ${sponsorEmail}. We’ll coordinate receipt and logo assets.`,
-      },
-      {
-        title: 'Are donations tax-deductible?',
-        content:
-          'Yes—through our school/district foundation or booster club (details in the packet). We can provide a receipt.',
+        description: `Download the packet for details or email us at ${sponsorEmail}. We’ll coordinate receipt and logo assets.`,
       },
       {
         title: 'Where will my logo appear?',
-        content: 'Depending on tier: robot, pit signage, team shirts, website, print materials, and social posts.',
+        description: 'Depending on tier: robot, pit signage, team shirts, website, print materials, and social posts.',
       },
       {
         title: 'Do you accept in-kind donations?',
-        content:
-          'Absolutely. Materials, machining, printing, tools, catering, and services are recognized at equivalent tiers.',
+        description:
+          'Absolutely. Materials, machining, printing, tools, catering, and services are recognized at equivalent tiers. Unable to provide receipts.',
       },
     ]}
   />
@@ -150,7 +142,7 @@ const packetUrl = '/files/Team4504_Sponsorship_Packet.pdf'; // change to your re
     title="Ready to partner with Team 4504?"
     subtitle="Help us inspire the next generation of builders, coders, and leaders."
     actions={[
-      { variant: 'primary', text: 'Download Sponsor Packet', href: packetUrl, target: '_blank', icon: 'tabler:file' },
+      { variant: 'primary', text: 'Download Sponsor Packet', href: packetUrl, target: '_blank', icon: 'tabler:file-dollar' },
       {
         text: 'Email the Team',
         href: `mailto:${sponsorEmail}?subject=Sponsor%20Inquiry%20-%20Team%204504`,

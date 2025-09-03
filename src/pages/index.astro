@@ -24,7 +24,12 @@ const metadata = {
     actions={[
       { variant: 'primary', text: 'Join the Team', href: '/join', icon: 'tabler:rocket' },
       { text: 'Sponsor Us', href: '/sponsors', icon: 'tabler:currency-dollar' },
-      { text: 'Watch Matches', href: 'https://www.thebluealliance.com/team/4504', target: '_blank', icon: 'tabler:player-play' },
+      {
+        text: 'Watch Matches',
+        href: 'https://www.thebluealliance.com/team/4504',
+        target: '_blank',
+        icon: 'tabler:player-play',
+      },
     ]}
     image={{ src: '~/assets/images/robot-2025.png', alt: 'Team 4504 robot' }}
   >
@@ -33,8 +38,8 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="subtitle">
-      We’re a student-led FIRST® Robotics Competition team building competitive robots,
-      growing STEM leaders, and serving our community in Blount County, TN.
+      We’re a student-led FIRST® Robotics Competition team building competitive robots, growing STEM leaders, and
+      serving our community in Blount County, TN.
     </Fragment>
   </Hero>
 
@@ -129,7 +134,10 @@ const metadata = {
     image={{ src: '~/assets/images/outreach.jpg', alt: 'Community outreach demo' }}
   >
     <Fragment slot="content">
-      Want in? Check <a class="text-blue-600 underline" href="/calendar">our calendar</a> or hit <a class="text-blue-600 underline" href="/contact">contact</a>.
+      Want in? Check <a class="text-blue-600 underline" href="/calendar">our calendar</a> or hit <a
+        class="text-blue-600 underline"
+        href="/contact">contact</a
+      >.
     </Fragment>
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
@@ -188,46 +196,55 @@ const metadata = {
         title: 'Robots',
         description: 'See this season’s robot, reveal video, and behind-the-scenes.',
         icon: 'tabler:brand-android',
+        href: '/robot',
       },
       {
         title: 'Awards',
         description: 'Our history at regional events and judged awards.',
         icon: 'tabler:medal',
+        href: '/awards'
       },
       {
         title: 'Safety',
         description: 'Training, tool certifications, and pit procedures.',
         icon: 'tabler:heart',
+        href: '/safety'
       },
       {
         title: 'Media',
         description: 'Photos, match footage, and social links.',
         icon: 'tabler:library-photo',
+        href: '/media'
       },
       {
         title: 'Docs',
         description: 'Open subteam handbooks, style guides, and checklists.',
         icon: 'flat-color-icons:document',
+        href: 'https://docs.bcr4504.org'
       },
       {
         title: 'Contact',
         description: 'Questions? Want a demo at your school or event? Reach out.',
         icon: 'flat-color-icons:business-contact',
+        href: '/contact'
       },
       {
         title: 'Calendar',
         description: 'Meetings, outreach events, and competition dates.',
         icon: 'tabler:calendar',
+        href: '/calendar'
       },
       {
         title: 'Sponsors',
         description: 'Sponsor tiers and benefits — grab our packet.',
         icon: 'flat-color-icons:currency-exchange',
+        href: '/sponsors'
       },
       {
         title: 'Alumni',
         description: 'Where our grads head next and how they give back.',
         icon: 'flat-color-icons:voice-presentation',
+        href: '/alumni'
       },
     ]}
   >
@@ -259,7 +276,7 @@ const metadata = {
       },
       {
         title: 'Cost to participate?',
-        description: 'We keep dues low thanks to sponsors. Need-based assistance available.',
+        description: 'Currently our dues are set at $100. Need-based assistance available.',
       },
       {
         title: 'Do I need experience?',
@@ -267,11 +284,11 @@ const metadata = {
       },
       {
         title: 'How do I sponsor?',
-        description: 'See /sponsors for tier benefits and our 501(c)(3) info, or email us.',
+        description: 'See our sponsor page for tier benefits and our 501(c)(3) info, or email us.',
       },
       {
         title: 'When/where do you meet?',
-        description: 'Check /calendar — preseason workshops and regular meetings are posted there.',
+        description: 'Check our calendar — preseason workshops and regular meetings are posted there.',
       },
     ]}
   />
@@ -279,8 +296,8 @@ const metadata = {
   <!-- Stats ****************** -->
   <Stats
     stats={[
-      { title: 'Students', amount: '35+' },
-      { title: 'Mentors', amount: '10+' },
+      { title: 'Students', amount: '25+' },
+      { title: 'Mentors', amount: '5+' },
       { title: 'Outreach Hours (yr)', amount: '400+' },
       { title: 'Sponsors', amount: '25+' },
     ]}
@@ -289,7 +306,12 @@ const metadata = {
   <!-- CTA ******************** -->
   <CallToAction
     actions={[
-      { variant: 'primary', text: 'Sponsor Packet (PDF)', href: '/files/4504-sponsor-packet.pdf', icon: 'tabler:file-dollar' },
+      {
+        variant: 'primary',
+        text: 'Sponsor Packet (PDF)',
+        href: '/files/sponsor-form.pdf',
+        icon: 'tabler:file-dollar',
+      },
       { text: 'Donate', href: '/donate', icon: 'tabler:heart' },
     ]}
   >
