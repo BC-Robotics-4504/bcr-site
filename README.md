@@ -1,8 +1,7 @@
 # BCR 4504 Team Website
 
 [![CI](https://github.com/BC-Robotics-4504/bcr-docs/actions/workflows/vercel-prod.yml/badge.svg?branch=master)](https://github.com/BC-Robotics-4504/bcr-docs/actions/workflows/vercel-prod.yml)
-[![License](https://img.shields.io/github/license/BC-Robotics-4504/bcr-docs?color=blue)](https://github.com/BC-Robotics-4504/bcr-docs/blob/main/LICENSE)
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+[![License](https://img.shields.io/github/license/BC-Robotics-4504/bcr-site?color=blue)](https://github.com/BC-Robotics-4504/bcr-site/blob/main/LICENSE)
 
 Welcome to the **official site** for **FRC Team BCR 4504**.
 This site contains resources, guides, and reference material for our team members, mentors, and supporters.
@@ -46,5 +45,5 @@ Our documentation site follows a clear and organized file structure for easy col
 We’d like to thank the following projects and services that make this documentation possible:
 
 - [Astro](https://astro.build) — For the static site framework.
-- [Starlight](https://starlight.astro.build) — For the documentation theme.
+- [Astrowind]([https://starlight.astro.build](https://github.com/arthelokyo/astrowind)) — For the site template.
 
