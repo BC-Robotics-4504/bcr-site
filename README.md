@@ -45,5 +45,5 @@ Our documentation site follows a clear and organized file structure for easy col
 We’d like to thank the following projects and services that make this documentation possible:
 
 - [Astro](https://astro.build) — For the static site framework.
-- [Astrowind]([https://starlight.astro.build](https://github.com/arthelokyo/astrowind)) — For the site template.
+- [Astrowind](https://github.com/arthelokyo/astrowind) — For the site template.
 
