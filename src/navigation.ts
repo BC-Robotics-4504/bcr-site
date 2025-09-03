@@ -4,45 +4,68 @@ export const headerData = {
   links: [
     {
       text: 'Home',
-      href: '/'
+      href: '/',
     },
 
     {
       text: 'Sponsor',
-      href: '/sponsor'
-
+      href: '/sponsor',
     },
 
     {
       text: 'Join',
-      href: '/join'
-
+      href: '/join',
     },
 
     {
       text: 'About Us',
-      href: '/about'
-
+      href: '/about',
     },
 
     {
       text: 'Blog',
+      href: getBlogPermalink(),
+    },
+
+    {
+      text: 'More',
       links: [
         {
-          text: 'Blog List',
-          href: getBlogPermalink(),
+          text: 'Alumni',
+          href: '/alumni',
+        },
+
+        {
+          text: 'Calendar',
+          href: '/calendar',
+        },
+
+        {
+          text: 'Sign In',
+          href: '/sign-in',
+        },
+        {
+          text: 'Awards',
+          href: '/awards',
+        },
+
+        {
+          text: 'Robots',
+          href: '/robots',
+        },
+
+        {
+          text: 'Safety',
+          href: '/safety',
         },
       ],
     },
-
   ],
   actions: [{ text: 'Contact Us', href: '/contact', target: '_blank' }],
 };
 
 export const footerData = {
-  links: [
-
-  ],
+  links: [],
   secondaryLinks: [
     { text: 'Terms', href: getPermalink('/terms') },
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
